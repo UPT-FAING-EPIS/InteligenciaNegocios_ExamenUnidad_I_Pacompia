@@ -1,0 +1,9 @@
+aws_region           = "us-east-1"
+environment          = "dev"
+project_name         = "susalud-bi"
+db_instance_class    = "db.t3.micro"
+db_allocated_storage = 20
+db_name              = "susalud_db"
+db_username          = "dbadmin"
+db_password          = "Susalud2026PassSecure!"
+allowed_cidr_blocks  = ["0.0.0.0/0"]

@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Reporte_Atenciones_Salud_Privada.Dataset"
+    },
+    "byConnection": null
+  }
+}

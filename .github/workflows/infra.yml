@@ -1,0 +1,76 @@
+name: "Infra - Provision Cloud Database (Terraform)"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/infra.yml'
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Acción de Terraform a ejecutar'
+        required: true
+        default: 'plan'
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  terraform:
+    name: "Terraform Infrastructure"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
+
+    steps:
+      - name: "1. Checkout del Repositorio"
+        uses: actions/checkout@v4
+
+      - name: "2. Instalar y Configurar Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.0
+
+      - name: "3. Configurar Credenciales de AWS"
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+        continue-on-error: true
+
+      - name: "4. Validar Formato de Código (terraform fmt)"
+        run: terraform fmt -check
+
+      - name: "5. Inicializar Terraform (terraform init)"
+        run: terraform init
+
+      - name: "6. Validar Sintaxis de Configuración (terraform validate)"
+        run: terraform validate
+
+      - name: "7. Generar Plan de Ejecución (terraform plan)"
+        if: ${{ github.event_name == 'push' || github.event.inputs.action == 'plan' || github.event.inputs.action == 'apply' }}
+        run: |
+          terraform plan \
+            -var="db_password=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" \
+            -out=tfplan
+
+      - name: "8. Aplicar Infraestructura (terraform apply)"
+        if: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy-infra]')) || github.event.inputs.action == 'apply' }}
+        run: terraform apply -auto-approve tfplan
+
+      - name: "9. Destruir Infraestructura (terraform destroy)"
+        if: ${{ github.event.inputs.action == 'destroy' }}
+        run: |
+          terraform destroy \
+            -var="db_password=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" \
+            -auto-approve

@@ -1,0 +1,322 @@
+{
+  "name": "Model",
+  "compatibilityLevel": 1550,
+  "model": {
+    "culture": "es-PE",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "tables": [
+      {
+        "name": "AtencionesSaludPrivada",
+        "columns": [
+          {
+            "name": "VCODIAFAS_FAC",
+            "dataType": "string",
+            "sourceColumn": "VCODIAFAS_FAC"
+          },
+          {
+            "name": "VCODIPRESS_FAC",
+            "dataType": "string",
+            "sourceColumn": "VCODIPRESS_FAC"
+          },
+          {
+            "name": "VTDOCPAGO_FAC",
+            "dataType": "string",
+            "sourceColumn": "VTDOCPAGO_FAC"
+          },
+          {
+            "name": "VNDOCPAGO_FAC",
+            "dataType": "string",
+            "sourceColumn": "VNDOCPAGO_FAC"
+          },
+          {
+            "name": "VCORRPRESTA_ATE",
+            "dataType": "string",
+            "sourceColumn": "VCORRPRESTA_ATE"
+          },
+          {
+            "name": "VTAFILPAC_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTAFILPAC_ATE"
+          },
+          {
+            "name": "VTDOCIDEN_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTDOCIDEN_ATE"
+          },
+          {
+            "name": "VNUMDOCIDEN_ATE",
+            "dataType": "string",
+            "sourceColumn": "VNUMDOCIDEN_ATE"
+          },
+          {
+            "name": "VTIPOCOBERT_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTIPOCOBERT_ATE"
+          },
+          {
+            "name": "VSUBTIPCOBERT_ATE",
+            "dataType": "string",
+            "sourceColumn": "VSUBTIPCOBERT_ATE"
+          },
+          {
+            "name": "VPRIDIAGCIE_ATE",
+            "dataType": "string",
+            "sourceColumn": "VPRIDIAGCIE_ATE"
+          },
+          {
+            "name": "VFECPRES_ATE",
+            "dataType": "string",
+            "sourceColumn": "VFECPRES_ATE"
+          },
+          {
+            "name": "VTITPRORESPRES_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTITPRORESPRES_ATE"
+          },
+          {
+            "name": "VTIPOHOSPI_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTIPOHOSPI_ATE"
+          },
+          {
+            "name": "VFECINGRHOSP_ATE",
+            "dataType": "string",
+            "sourceColumn": "VFECINGRHOSP_ATE"
+          },
+          {
+            "name": "VFECEGRHOSP_ATE",
+            "dataType": "string",
+            "sourceColumn": "VFECEGRHOSP_ATE"
+          },
+          {
+            "name": "VTIPEGREHOSP_ATE",
+            "dataType": "string",
+            "sourceColumn": "VTIPEGREHOSP_ATE"
+          },
+          {
+            "name": "VDIASESTFAC_ATE",
+            "dataType": "int64",
+            "sourceColumn": "VDIASESTFAC_ATE"
+          },
+          {
+            "name": "VFECNACPAC_ATE",
+            "dataType": "string",
+            "sourceColumn": "VFECNACPAC_ATE"
+          },
+          {
+            "name": "VSEXOPAC_ATE",
+            "dataType": "string",
+            "sourceColumn": "VSEXOPAC_ATE"
+          },
+          {
+            "name": "VFILIAPAC_ATE",
+            "dataType": "string",
+            "sourceColumn": "VFILIAPAC_ATE"
+          },
+          {
+            "name": "VUBIGEOIPRESS_ATE",
+            "dataType": "string",
+            "sourceColumn": "VUBIGEOIPRESS_ATE"
+          },
+          {
+            "name": "VGASTHONPROSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTHONPROSIGV_ATE"
+          },
+          {
+            "name": "VGASTPRODOSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTPRODOSIGV_ATE"
+          },
+          {
+            "name": "VGASTHTSCLITOPSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTHTSCLITOPSIGV_ATE"
+          },
+          {
+            "name": "VGASTEXAUXLABSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTEXAUXLABSIGV_ATE"
+          },
+          {
+            "name": "VGASTEXAUXIMGSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTEXAUXIMGSIGV_ATE"
+          },
+          {
+            "name": "VGASTFARINSSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTFARINSSIGV_ATE"
+          },
+          {
+            "name": "VGASTPROTSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTPROTSIGV_ATE"
+          },
+          {
+            "name": "VGASTMEDEXOIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VGASTMEDEXOIGV_ATE"
+          },
+          {
+            "name": "VOGPRESSLDSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VOGPRESSLDSIGV_ATE"
+          },
+          {
+            "name": "VCOPAGOFIJOSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VCOPAGOFIJOSIGV_ATE"
+          },
+          {
+            "name": "VCPAGOFIJOEXIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VCPAGOFIJOEXIGV_ATE"
+          },
+          {
+            "name": "VCOPAGOVARSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VCOPAGOVARSIGV_ATE"
+          },
+          {
+            "name": "VCPAGOVAREXIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VCPAGOVAREXIGV_ATE"
+          },
+          {
+            "name": "VTOTGASTCUBSIGV_ATE",
+            "dataType": "double",
+            "sourceColumn": "VTOTGASTCUBSIGV_ATE"
+          },
+          {
+            "name": "VTOTLIQIAFAS_ATE",
+            "dataType": "double",
+            "sourceColumn": "VTOTLIQIAFAS_ATE"
+          },
+          {
+            "name": "DFECRECEP_PQ",
+            "dataType": "dateTime",
+            "sourceColumn": "DFECRECEP_PQ"
+          },
+          {
+            "name": "UBIGEO_AFILIADO",
+            "dataType": "string",
+            "sourceColumn": "UBIGEO_AFILIADO"
+          },
+          {
+            "name": "Tipo_Cobertura_Desc",
+            "dataType": "string",
+            "sourceColumn": "Tipo_Cobertura_Desc"
+          },
+          {
+            "name": "Sexo_Desc",
+            "dataType": "string",
+            "sourceColumn": "Sexo_Desc"
+          },
+          {
+            "name": "Tipo_Afiliacion_Desc",
+            "dataType": "string",
+            "sourceColumn": "Tipo_Afiliacion_Desc"
+          },
+          {
+            "name": "Total_Copago",
+            "dataType": "double",
+            "sourceColumn": "Total_Copago"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "AtencionesSaludPrivada",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let\n",
+                "    Origen = Csv.Document(File.Contents(\"C:/Users/HP/Documents/InteligenciaNegocios_ExamenUnidad_I_Pacompia/data/atenciones_salud_privada_sample.csv\"),[Delimiter=\";\", Columns=39, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n",
+                "    #\"Encabezados promovidos\" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),\n",
+                "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Encabezados promovidos\",{\n",
+                "        {\"VCODIAFAS_FAC\", type text},\n",
+                "        {\"VCODIPRESS_FAC\", type text},\n",
+                "        {\"VTDOCPAGO_FAC\", type text},\n",
+                "        {\"VNDOCPAGO_FAC\", type text},\n",
+                "        {\"VCORRPRESTA_ATE\", type text},\n",
+                "        {\"VTAFILPAC_ATE\", type text},\n",
+                "        {\"VTDOCIDEN_ATE\", type text},\n",
+                "        {\"VNUMDOCIDEN_ATE\", type text},\n",
+                "        {\"VTIPOCOBERT_ATE\", type text},\n",
+                "        {\"VSUBTIPCOBERT_ATE\", type text},\n",
+                "        {\"VPRIDIAGCIE_ATE\", type text},\n",
+                "        {\"VFECPRES_ATE\", type text},\n",
+                "        {\"VTITPRORESPRES_ATE\", type text},\n",
+                "        {\"VTIPOHOSPI_ATE\", type text},\n",
+                "        {\"VFECINGRHOSP_ATE\", type text},\n",
+                "        {\"VFECEGRHOSP_ATE\", type text},\n",
+                "        {\"VTIPEGREHOSP_ATE\", type text},\n",
+                "        {\"VDIASESTFAC_ATE\", Int64.Type},\n",
+                "        {\"VFECNACPAC_ATE\", type text},\n",
+                "        {\"VSEXOPAC_ATE\", type text},\n",
+                "        {\"VFILIAPAC_ATE\", type text},\n",
+                "        {\"VUBIGEOIPRESS_ATE\", type text},\n",
+                "        {\"VGASTHONPROSIGV_ATE\", type number},\n",
+                "        {\"VGASTPRODOSIGV_ATE\", type number},\n",
+                "        {\"VGASTHTSCLITOPSIGV_ATE\", type number},\n",
+                "        {\"VGASTEXAUXLABSIGV_ATE\", type number},\n",
+                "        {\"VGASTEXAUXIMGSIGV_ATE\", type number},\n",
+                "        {\"VGASTFARINSSIGV_ATE\", type number},\n",
+                "        {\"VGASTPROTSIGV_ATE\", type number},\n",
+                "        {\"VGASTMEDEXOIGV_ATE\", type number},\n",
+                "        {\"VOGPRESSLDSIGV_ATE\", type number},\n",
+                "        {\"VCOPAGOFIJOSIGV_ATE\", type number},\n",
+                "        {\"VCPAGOFIJOEXIGV_ATE\", type number},\n",
+                "        {\"VCOPAGOVARSIGV_ATE\", type number},\n",
+                "        {\"VCPAGOVAREXIGV_ATE\", type number},\n",
+                "        {\"VTOTGASTCUBSIGV_ATE\", type number},\n",
+                "        {\"VTOTLIQIAFAS_ATE\", type number},\n",
+                "        {\"DFECRECEP_PQ\", type datetime},\n",
+                "        {\"UBIGEO_AFILIADO\", type text}\n",
+                "    }),\n",
+                "    #\"Columna Cobertura\" = Table.AddColumn(#\"Tipo cambiado\", \"Tipo_Cobertura_Desc\", each if [VTIPOCOBERT_ATE] = \"1\" then \"Extra hospitalario\" else if [VTIPOCOBERT_ATE] = \"2\" then \"M\u00e9dico en planta\" else if [VTIPOCOBERT_ATE] = \"3\" then \"Medicinas alternativas\" else if [VTIPOCOBERT_ATE] = \"4\" then \"Ambulatorio\" else if [VTIPOCOBERT_ATE] = \"5\" then \"Hospitalaria\" else if [VTIPOCOBERT_ATE] = \"6\" then \"Emergencia\" else if [VTIPOCOBERT_ATE] = \"8\" then \"Integral (SIS)\" else \"Otros\", type text),\n",
+                "    #\"Columna Sexo\" = Table.AddColumn(#\"Columna Cobertura\", \"Sexo_Desc\", each if [VSEXOPAC_ATE] = \"1\" then \"Masculino\" else if [VSEXOPAC_ATE] = \"2\" then \"Femenino\" else \"No especificado\", type text),\n",
+                "    #\"Columna Afiliacion\" = Table.AddColumn(#\"Columna Sexo\", \"Tipo_Afiliacion_Desc\", each if [VTAFILPAC_ATE] = \"1\" then \"Regular\" else if [VTAFILPAC_ATE] = \"2\" then \"SCTR\" else if [VTAFILPAC_ATE] = \"3\" then \"Potestativo\" else if [VTAFILPAC_ATE] = \"4\" then \"SCTR Indep.\" else if [VTAFILPAC_ATE] = \"6\" then \"SOAT\" else if [VTAFILPAC_ATE] = \"8\" then \"SIS Subsidiado\" else \"Otros\", type text),\n",
+                "    #\"Columna Copago Total\" = Table.AddColumn(#\"Columna Afiliacion\", \"Total_Copago\", each [VCOPAGOFIJOSIGV_ATE] + [VCPAGOFIJOEXIGV_ATE] + [VCOPAGOVARSIGV_ATE] + [VCPAGOVAREXIGV_ATE], type number)\n",
+                "in\n",
+                "    #\"Columna Copago Total\" \n"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Atenciones",
+            "expression": "COUNTROWS('AtencionesSaludPrivada')",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Facturado IAFAS",
+            "expression": "SUM('AtencionesSaludPrivada'[VTOTLIQIAFAS_ATE])",
+            "formatString": "\"S/.\" #,0.00"
+          },
+          {
+            "name": "Total Copagos Pacientes",
+            "expression": "SUM('AtencionesSaludPrivada'[Total_Copago])",
+            "formatString": "\"S/.\" #,0.00"
+          },
+          {
+            "name": "Total Gasto Farmacia",
+            "expression": "SUM('AtencionesSaludPrivada'[VGASTFARINSSIGV_ATE])",
+            "formatString": "\"S/.\" #,0.00"
+          },
+          {
+            "name": "Total Gasto Honorarios",
+            "expression": "SUM('AtencionesSaludPrivada'[VGASTHONPROSIGV_ATE])",
+            "formatString": "\"S/.\" #,0.00"
+          }
+        ]
+      }
+    ]
+  }
+}

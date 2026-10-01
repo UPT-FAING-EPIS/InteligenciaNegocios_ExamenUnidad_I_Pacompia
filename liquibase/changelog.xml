@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- =================================================================== -->
+    <!-- CHANGESET 1: CREACIÓN DE TABLAS DIMENSIONALES, HECHOS Y VISTAS     -->
+    <!-- =================================================================== -->
+    <changeSet id="01-create-tables" author="Abel Pacompia">
+        <comment>Creacion de dimensiones y tabla principal de atenciones de salud privada</comment>
+        <sqlFile path="../sql/01_create_tables.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+    <!-- =================================================================== -->
+    <!-- CHANGESET 2: CARGA DE CATÁLOGOS Y REGISTROS SEED DE ATENCIONES      -->
+    <!-- =================================================================== -->
+    <changeSet id="02-load-data" author="Abel Pacompia">
+        <comment>Carga de catalogos oficiales SUSALUD y registros reales de muestra</comment>
+        <sqlFile path="../sql/02_load_data.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="false"/>
+    </changeSet>
+
+</databaseChangeLog>

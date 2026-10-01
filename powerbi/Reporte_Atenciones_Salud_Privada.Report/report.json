@@ -1,0 +1,142 @@
+{
+  "id": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "id": 0,
+      "name": "Section1",
+      "displayName": "Dashboard 1 - Indicadores Financieros",
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 20,
+          "z": 1000,
+          "width": 1240,
+          "height": 60,
+          "config": "{\"name\": \"Title1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 20, \"z\": 1000, \"width\": 1240, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"DASHBOARD FINANCIERO: PRESTACIONES DE SALUD PRIVADA (SUSALUD / TEDEF)\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontFamily\": \"Segoe UI Semibold\", \"color\": \"#003366\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20,
+          "y": 100,
+          "z": 1001,
+          "width": 380,
+          "height": 130,
+          "config": "{\"name\": \"CardTotalFacturado\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 100, \"z\": 1001, \"width\": 380, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Facturado IAFAS\"}]}}}"
+        },
+        {
+          "x": 450,
+          "y": 100,
+          "z": 1002,
+          "width": 380,
+          "height": 130,
+          "config": "{\"name\": \"CardTotalCopagos\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 450, \"y\": 100, \"z\": 1002, \"width\": 380, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Copagos Pacientes\"}]}}}"
+        },
+        {
+          "x": 880,
+          "y": 100,
+          "z": 1003,
+          "width": 380,
+          "height": 130,
+          "config": "{\"name\": \"CardTotalAtenciones\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 880, \"y\": 100, \"z\": 1003, \"width\": 380, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Atenciones\"}]}}}"
+        },
+        {
+          "x": 20,
+          "y": 250,
+          "z": 1004,
+          "width": 700,
+          "height": 430,
+          "config": "{\"name\": \"BarFacturadoPorCobertura\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 250, \"z\": 1004, \"width\": 700, \"height\": 430}}], \"singleVisual\": {\"visualType\": \"columnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"AtencionesSaludPrivada.Tipo_Cobertura_Desc\"}], \"Y\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Facturado IAFAS\"}]}}}"
+        },
+        {
+          "x": 750,
+          "y": 250,
+          "z": 1005,
+          "width": 510,
+          "height": 430,
+          "config": "{\"name\": \"DonutGastoPorRubro\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 750, \"y\": 250, \"z\": 1005, \"width\": 510, \"height\": 430}}], \"singleVisual\": {\"visualType\": \"pieChart\", \"projections\": {\"Category\": [{\"queryRef\": \"AtencionesSaludPrivada.Tipo_Afiliacion_Desc\"}], \"Y\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Facturado IAFAS\"}]}}}"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Section2",
+      "displayName": "Dashboard 2 - An\u00e1lisis Cl\u00ednico y Demogr\u00e1fico",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 20,
+          "z": 2000,
+          "width": 1240,
+          "height": 60,
+          "config": "{\"name\": \"Title2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 20, \"z\": 2000, \"width\": 1240, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"AN\\u00c1LISIS DEMOGR\\u00c1FICO Y MORBILIDAD (CIE-10 / PACIENTES)\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontFamily\": \"Segoe UI Semibold\", \"color\": \"#003366\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20,
+          "y": 100,
+          "z": 2001,
+          "width": 450,
+          "height": 580,
+          "config": "{\"name\": \"DonutSexo\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 100, \"z\": 2001, \"width\": 450, \"height\": 580}}], \"singleVisual\": {\"visualType\": \"donutChart\", \"projections\": {\"Category\": [{\"queryRef\": \"AtencionesSaludPrivada.Sexo_Desc\"}], \"Y\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Atenciones\"}]}}}"
+        },
+        {
+          "x": 500,
+          "y": 100,
+          "z": 2002,
+          "width": 760,
+          "height": 580,
+          "config": "{\"name\": \"BarTopDiagnosticos\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 500, \"y\": 100, \"z\": 2002, \"width\": 760, \"height\": 580}}], \"singleVisual\": {\"visualType\": \"barChart\", \"projections\": {\"Category\": [{\"queryRef\": \"AtencionesSaludPrivada.VPRIDIAGCIE_ATE\"}], \"Y\": [{\"queryRef\": \"AtencionesSaludPrivada.Total Atenciones\"}]}}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Section3",
+      "displayName": "Reporte Tabla - Detalle de Atenciones",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 20,
+          "z": 3000,
+          "width": 1240,
+          "height": 60,
+          "config": "{\"name\": \"Title3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 20, \"z\": 3000, \"width\": 1240, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"REPORTE DETALLADO CON SEGMENTACI\\u00d3N (FILTROS)\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontFamily\": \"Segoe UI Semibold\", \"color\": \"#003366\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20,
+          "y": 90,
+          "z": 3001,
+          "width": 380,
+          "height": 130,
+          "config": "{\"name\": \"SlicerCobertura\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 90, \"z\": 3001, \"width\": 380, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Tipo_Cobertura_Desc\"}]}}}"
+        },
+        {
+          "x": 420,
+          "y": 90,
+          "z": 3002,
+          "width": 380,
+          "height": 130,
+          "config": "{\"name\": \"SlicerSexo\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 420, \"y\": 90, \"z\": 3002, \"width\": 380, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Sexo_Desc\"}]}}}"
+        },
+        {
+          "x": 820,
+          "y": 90,
+          "z": 3003,
+          "width": 440,
+          "height": 130,
+          "config": "{\"name\": \"SlicerAfiliacion\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 820, \"y\": 90, \"z\": 3003, \"width\": 440, \"height\": 130}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.Tipo_Afiliacion_Desc\"}]}}}"
+        },
+        {
+          "x": 20,
+          "y": 240,
+          "z": 3004,
+          "width": 1240,
+          "height": 450,
+          "config": "{\"name\": \"TableDetalleAtenciones\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 240, \"z\": 3004, \"width\": 1240, \"height\": 450}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"AtencionesSaludPrivada.VCORRPRESTA_ATE\"}, {\"queryRef\": \"AtencionesSaludPrivada.VFECPRES_ATE\"}, {\"queryRef\": \"AtencionesSaludPrivada.VPRIDIAGCIE_ATE\"}, {\"queryRef\": \"AtencionesSaludPrivada.Tipo_Cobertura_Desc\"}, {\"queryRef\": \"AtencionesSaludPrivada.Tipo_Afiliacion_Desc\"}, {\"queryRef\": \"AtencionesSaludPrivada.Sexo_Desc\"}, {\"queryRef\": \"AtencionesSaludPrivada.VGASTHONPROSIGV_ATE\"}, {\"queryRef\": \"AtencionesSaludPrivada.VGASTFARINSSIGV_ATE\"}, {\"queryRef\": \"AtencionesSaludPrivada.Total_Copago\"}, {\"queryRef\": \"AtencionesSaludPrivada.VTOTLIQIAFAS_ATE\"}]}}}"
+        }
+      ]
+    }
+  ]
+}
