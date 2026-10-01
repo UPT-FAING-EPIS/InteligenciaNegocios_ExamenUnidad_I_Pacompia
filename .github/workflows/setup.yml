@@ -29,9 +29,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: ${{ secrets.DB_NAME || 'susalud_db' }}
-          POSTGRES_USER: ${{ secrets.DB_USER || 'dbadmin' }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}
+          POSTGRES_DB: susalud_db
+          POSTGRES_USER: dbadmin
+          POSTGRES_PASSWORD: Susalud2026PassSecure!
         ports:
           - 5432:5432
         options: >-
@@ -53,7 +53,7 @@ jobs:
       - name: "3. Instalar Liquibase CLI"
         uses: liquibase/setup-liquibase@v1
         with:
-          liquibaseVersion: '4.27.0'
+          version: '4.27.0'
 
       - name: "4. Determinar Variables de Conexión"
         id: conn
@@ -62,14 +62,17 @@ jobs:
             echo "Conectando a base de datos en nube AWS RDS: ${{ secrets.DB_HOST }}"
             echo "DB_HOST=${{ secrets.DB_HOST }}" >> $GITHUB_ENV
             echo "DB_PORT=${{ secrets.DB_PORT || '5432' }}" >> $GITHUB_ENV
+            echo "DB_NAME=${{ secrets.DB_NAME || 'susalud_db' }}" >> $GITHUB_ENV
+            echo "DB_USER=${{ secrets.DB_USER || 'dbadmin' }}" >> $GITHUB_ENV
+            echo "DB_PASSWORD=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" >> $GITHUB_ENV
           else
             echo "Conectando a contenedor PostgreSQL de CI (Localhost)"
             echo "DB_HOST=localhost" >> $GITHUB_ENV
             echo "DB_PORT=5432" >> $GITHUB_ENV
+            echo "DB_NAME=susalud_db" >> $GITHUB_ENV
+            echo "DB_USER=dbadmin" >> $GITHUB_ENV
+            echo "DB_PASSWORD=Susalud2026PassSecure!" >> $GITHUB_ENV
           fi
-          echo "DB_NAME=${{ secrets.DB_NAME || 'susalud_db' }}" >> $GITHUB_ENV
-          echo "DB_USER=${{ secrets.DB_USER || 'dbadmin' }}" >> $GITHUB_ENV
-          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" >> $GITHUB_ENV
 
       - name: "5. Validar Conectividad con la Base de Datos"
         run: |

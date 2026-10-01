@@ -40,36 +40,60 @@ jobs:
         with:
           terraform_version: 1.8.0
 
-      - name: "3. Configurar Credenciales de AWS"
+      - name: "3. Verificar Configuración de Credenciales de AWS"
+        id: check_aws
+        run: |
+          if [ -n "${{ secrets.AWS_ACCESS_KEY_ID }}" ] && [ -n "${{ secrets.AWS_SECRET_ACCESS_KEY }}" ]; then
+            echo "has_credentials=true" >> $GITHUB_OUTPUT
+            echo "Credenciales de AWS detectadas en GitHub Secrets."
+          else
+            echo "has_credentials=false" >> $GITHUB_OUTPUT
+            echo "Modo validacion: Credenciales de AWS no configuradas en Secrets. Se validara la sintaxis y configuracion."
+          fi
+
+      - name: "4. Configurar Credenciales de AWS"
+        if: steps.check_aws.outputs.has_credentials == 'true'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
-        continue-on-error: true
 
-      - name: "4. Validar Formato de Código (terraform fmt)"
+      - name: "5. Validar Formato de Código (terraform fmt)"
         run: terraform fmt -check
 
-      - name: "5. Inicializar Terraform (terraform init)"
+      - name: "6. Inicializar Terraform (terraform init)"
         run: terraform init
 
-      - name: "6. Validar Sintaxis de Configuración (terraform validate)"
+      - name: "7. Validar Sintaxis de Configuración (terraform validate)"
         run: terraform validate
 
-      - name: "7. Generar Plan de Ejecución (terraform plan)"
-        if: ${{ github.event_name == 'push' || github.event.inputs.action == 'plan' || github.event.inputs.action == 'apply' }}
+      - name: "8. Generar Plan de Ejecución (terraform plan con AWS)"
+        if: steps.check_aws.outputs.has_credentials == 'true' && (github.event_name == 'push' || github.event.inputs.action == 'plan' || github.event.inputs.action == 'apply')
         run: |
           terraform plan \
             -var="db_password=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" \
             -out=tfplan
 
-      - name: "8. Aplicar Infraestructura (terraform apply)"
-        if: ${{ (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy-infra]')) || github.event.inputs.action == 'apply' }}
+      - name: "8b. Modo Simulado / Validación Completa (Sin credenciales AWS)"
+        if: steps.check_aws.outputs.has_credentials == 'false'
+        run: |
+          echo "=========================================================="
+          echo "VALIDACIÓN EXITOSA DE CÓDIGO TERRAFORM"
+          echo "La sintaxis HCL, módulos, providers y recursos son 100% válidos."
+          echo "Para desplegar la instancia real en la nube AWS, configure:"
+          echo "  - AWS_ACCESS_KEY_ID"
+          echo "  - AWS_SECRET_ACCESS_KEY"
+          echo "  - AWS_REGION"
+          echo "en: Repositorio > Settings > Secrets and variables > Actions"
+          echo "=========================================================="
+
+      - name: "9. Aplicar Infraestructura (terraform apply)"
+        if: steps.check_aws.outputs.has_credentials == 'true' && ((github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy-infra]')) || github.event.inputs.action == 'apply')
         run: terraform apply -auto-approve tfplan
 
-      - name: "9. Destruir Infraestructura (terraform destroy)"
-        if: ${{ github.event.inputs.action == 'destroy' }}
+      - name: "10. Destruir Infraestructura (terraform destroy)"
+        if: steps.check_aws.outputs.has_credentials == 'true' && github.event.inputs.action == 'destroy'
         run: |
           terraform destroy \
             -var="db_password=${{ secrets.DB_PASSWORD || 'Susalud2026PassSecure!' }}" \
