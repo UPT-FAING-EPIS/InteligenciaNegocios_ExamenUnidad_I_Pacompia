@@ -1,37 +1,22 @@
 # ==============================================================================
 # PROYECTO: Inteligencia de Negocios - Examen Unidad I (Pacompia)
 # INFRAESTRUCTURA COMO CÓDIGO (IaC) - AWS RDS POSTGRESQL CON TERRAFORM
+# NOTA: Se usa VPC y subnets con IDs fijos para compatibilidad con cuentas
+#       universitarias AWS Academy que restringen DescribeVpcs en EC2.
 # ==============================================================================
 
-# Obtención de la VPC por defecto de la cuenta AWS
-data "aws_vpc" "default" {
-  default = true
-}
-
-# Obtención de las subnets por defecto en diferentes zonas de disponibilidad
-data "aws_subnets" "default" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
-  }
-}
-
-# Grupo de subnets para la base de datos RDS (requiere al menos 2 AZs)
-resource "aws_db_subnet_group" "db_subnet_group" {
-  name        = "${var.project_name}-${var.environment}-subnet-group"
-  description = "Grupo de subnets para PostgreSQL RDS de SUSALUD BI"
-  subnet_ids  = data.aws_subnets.default.ids
-
-  tags = {
-    Name = "${var.project_name}-subnet-group"
-  }
+# Variables locales con IDs de infraestructura de red
+# (Configura los valores reales en terraform.tfvars o en GitHub Secrets)
+locals {
+  vpc_id     = var.vpc_id
+  subnet_ids = var.subnet_ids
 }
 
 # Security Group para habilitar acceso a PostgreSQL (puerto 5432)
 resource "aws_security_group" "rds_sg" {
   name        = "${var.project_name}-${var.environment}-rds-sg"
   description = "Permite trafico entrante a PostgreSQL para Power BI y Liquibase"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id      = local.vpc_id
 
   ingress {
     description = "Acceso a puerto PostgreSQL desde IPs autorizadas"
@@ -51,6 +36,17 @@ resource "aws_security_group" "rds_sg" {
 
   tags = {
     Name = "${var.project_name}-rds-sg"
+  }
+}
+
+# Grupo de subnets para la base de datos RDS (requiere al menos 2 AZs)
+resource "aws_db_subnet_group" "db_subnet_group" {
+  name        = "${var.project_name}-${var.environment}-subnet-group"
+  description = "Grupo de subnets para PostgreSQL RDS de SUSALUD BI"
+  subnet_ids  = local.subnet_ids
+
+  tags = {
+    Name = "${var.project_name}-subnet-group"
   }
 }
 

@@ -52,3 +52,21 @@ variable "allowed_cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+# -----------------------------------------------------------------------
+# VARIABLES DE RED (para cuentas con SCP que bloquean DescribeVpcs)
+# Obtener estos valores manualmente desde la consola de AWS:
+# VPC ID  -> AWS Console > VPC > Sus VPCs > copiar el vpc-xxxxxxxx
+# Subnets -> AWS Console > VPC > Subredes > copiar 2 IDs de subredes
+# -----------------------------------------------------------------------
+variable "vpc_id" {
+  description = "ID de la VPC donde se desplegará la base de datos (ej: vpc-0abc1234567890abc)"
+  type        = string
+  default     = "vpc-00000000000000000"
+}
+
+variable "subnet_ids" {
+  description = "Lista de al menos 2 IDs de subredes en distintas zonas de disponibilidad"
+  type        = list(string)
+  default     = ["subnet-00000000000000001", "subnet-00000000000000002"]
+}
